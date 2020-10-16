@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>스투스뜨-그림맞추기</title>
+	<link rel="stylesheet" href="./style.css">
+	<style type="text/css">
+		 @font-face {
+    font-family: 'CookieRunOTF-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;}
+
+     #cardTable td{
+          border: 5px solid white; 
+          width: 80px; 
+            height: 80px; 
+          text-align: center;
+        }
+    #cardTable {
+    border-collapse: collapse;
+    margin-top: 8px;
+    margin-left: 31px;
+    margin-bottom: 40px;
+}
+	</style>
+</head>
+<body id="index-game-three">
+    
+	<div id="pagethree" class="pageboxes">
+		<head>
+			<div class="head-left-icons">
+                <!---다른 사이트 주소오ㅗ- -->
+				<a href="https://yoondakyeong.github.io/stooses-game">
+					<img class="icon-tops" src="./game6/icon-top-left.png">
+				</a>
+			</div>
+			<div class="head-right-icons">
+				<a href="./index.html">
+                    <img class="icon-tops" src="./game6/icon-top-right-one.png">
+                </a>
+                <a href="./game6-2page.html">
+                    <img class="icon-tops" src="./game6/icon-top-right-two.png">
+                </a>
+                <a href="./game6-3page.html">
+                    <img class="icon-tops" src="./game6/icon-top-right-three.png">
+                </a>
+			</div>
+		</head>
+         <img id="iconlastt" class="iconlastss" src="./game6/icon-lastt.png">
+         <img src="./game6/backkk.gif" class="backlast">
+
+        <a href="./index.html">
+       <button id="nextstage" class="nextstage-game6" style="display: none; top: 88%;">처음으로</button>
+    </a>
+    <button id='ag'>다시하기</button>
+
+		<div id="gamethree-wrap">
+			<img class="gamethree-box" src="./game6/boximg.png">
+<!--ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ -->
+		<div id="game6wrap" style="top: 49%;">
+		<!--게임시작-->
+		<div class='width500px'>
+            <div>
+            
+               
+                <table id='menuTable'>
+                    <tr>
+                        
+                        <td class='alignRight' id="scorewrap">
+                            <span>&nbsp;점수 : <span id='score'>0</span></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div>
+                <div id='countDown'>
+                    잃어버린 숫자카드다
+                </div>
+                <table id='cardTable'>
+                </table>
+                <div id='info'>
+                	<td class='alignLeft'>
+                            <button id='startBtn'>Level 3</button>
+                        
+                        </td>
+                    <!--나의 짝을 찾아줘~!!<br>-->
+                </div>
+				
+					<script type="text/javascript">
+						startBtn.onclick=function(){
+						countDown.style.visibility='visible';
+						scorewrap.style.visibility='visible';
+					}
+					</script>
+
+            </div>
+  
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+
+
+/*다음페이지로 넘어가기이이*/
+			document.getElementById("nextstage").onclick = function(){
+				window.location = "index.html";
+			}
+
+			// 게임 상태
+            var gameState = '';
+ 
+            // 열린 카드 src
+            var openCardId = '';
+            var openCardId2 = '';
+ 
+            // 난수 생성 함수
+            function generateRandom (min, max) {
+                var ranNum = Math.floor(Math.random()*(max-min+1)) + min;
+                    return ranNum;
+            }
+ 
+            
+            var cards; // 카드 목록
+            var score = 0; // 점수
+            var openedCtn = 0; // 맞춘 카드 갯수
+            
+            // 카드 배치
+            function setTable(){
+                cards = [
+				'./game6/n-one.png','./game6/n-one.png', // 1
+				'./game6/n-two.png','./game6/n-two.png', // 2
+				'./game6/n-three.png','./game6/n-three.png', // 3
+				'./game6/n-four.png','./game6/n-four.png', // 4
+				'./game6/n-five.png','./game6/n-five.png', // 5
+				'./game6/n-six.png','./game6/n-six.png', // 6
+                './game6/n-z.png','./game6/n-z.png', // 0
+                './game6/n-seven.png','./game6/n-seven.png', // 7
+                './game6/n-nine.png','./game6/n-nine.png', // 9
+                './game6/n-ten.png','./game6/n-ten.png' // 10
+				
+				];
+                var cardTableCode = '<tr>';                
+                for(var i=0;i<20;i++) {
+          //칸 두칸씩, 정하기
+                    if(i>0 && i%4 == 0){
+                        cardTableCode += '</tr><tr>';
+                    }
+                    var idx = generateRandom(0,19-i);
+                    var img = cards.splice(idx,1);
+ 
+                    cardTableCode += '<td id="card'+i+'"><img src="'+img+'"><span>?</span></td>';
+                }
+                cardTableCode += '</tr>';
+                $('#cardTable').html(cardTableCode);
+            }
+ 
+            // 카드 전체 가리기
+            function hiddenCards(){
+                $('#cardTable td img').hide();
+                $('#cardTable td span').show();
+            }
+ 
+            // 게임 시작
+            function startGame() {
+                var sec = 6;
+                
+                $('#info').hide(); // 안내 문구 가리기
+                scoreInit(); // 점수 초기화
+                setTable(); // 카드 배치
+
+               function startBtn(){
+              
+               }
+                
+                //카운트 다운
+                function setText(){
+                    $('#countDown').text(--sec);
+                }
+ 
+                //카운트 다운
+                var intervalID = setInterval(setText, 1000);
+                setTimeout(function(){
+                    clearInterval(intervalID);
+                    $('#countDown').text('숫자카드 찾아줘!');
+                    hiddenCards();
+                    gameState = '';
+                }, 6000);
+            }
+ 
+ 
+            // 카드 선택 시
+            $(document).on('click', '#cardTable td', function(){
+                if(gameState != '') return; // 게임 카운트 다운중일 때 누른 경우 return
+                if(openCardId2 != '') return; // 2개 열려있는데 또 누른 경우 return
+                if($(this).hasClass('opened')) return; // 열려있는 카드를 또 누른 경우                
+                $(this).addClass('opened'); // 열여있다는 것을 구분하기 위한 class 추가
+ 
+                if(openCardId == '') {
+                    $(this).find('img').show();
+                    $(this).find('span').hide();
+                    openCardId = this.id;
+                }else {
+                    if(openCardId == openCardId2) return; //같은 카드 누른 경우 return
+ 
+                    $(this).find('img').show();
+                    $(this).find('span').hide();
+                    
+                    var openCardSrc = $('#'+openCardId).find('img').attr('src');
+                    var openCardSrc2 = $(this).find('img').attr('src');
+                    openCardId2 = this.id;
+                    
+                    if(openCardSrc == openCardSrc2) { // 일치
+                        openCardId = '';
+                        openCardId2 = '';
+                        scorePlus();
+                        if(++openedCtn == 10){
+                            countDown.innerHTML='점수는 \n'+score+'점';
+                            
+                            //마크으으으으으으으으으ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ이미지 추가
+
+                            if( score > 49){
+                                iconlastt.style.display = 'block';
+                            	document.getElementById("nextstage").style.display = "block";
+                                document.querySelector('.backlast').style.display = 'block';
+                            }
+                             if( score < 49){
+                                ag.style.display = 'block';
+                            }
+                        }
+                    }else { // 불일치
+                        setTimeout(back, 1000);
+                        scoreMinus();
+                    }
+                }
+            });
+ 
+            // 두개의 카드 다시 뒤집기
+            function back() {
+                $('#'+openCardId).find('img').hide();
+                $('#'+openCardId).find('span').show();
+                $('#'+openCardId2).find('img').hide();
+                $('#'+openCardId2).find('span').show();
+                $('#'+openCardId).removeClass('opened');
+                $('#'+openCardId2).removeClass('opened');
+                openCardId = '';
+                openCardId2 = '';
+            }
+ 
+            // 점수 초기화
+            function scoreInit(){
+                score = 0;
+                openedCtn = 0;
+                $('#score').text(score);
+            }
+            // 점수 증가
+            function scorePlus(){
+                score += 15;
+                $('#score').text(score);
+            }
+            // 점수 감소
+            function scoreMinus(){
+                score -= 5;
+                $('#score').text(score);
+            }
+ 
+            $(document).on('click', '#startBtn', function(){
+                if(gameState == '') {
+                    startGame();
+                    gameState = 'alreadyStart'
+                }
+            });
+
+            ag.onclick = function(){
+            	location.reload();
+            }
+
+		</script>
+	</div>
+</div>
+
+
+
+
+
+		</div>
+
+		<div>
+			<img class="gamethree-ju" src="./game6/ju-n.png">
+			<img class="gamethree-ju-n" id="jun" src="./game6/ju.png">
+
+			<img class="gamethree-text" id="gamethreet" src="./game6/img-text.png">
+			<img class="gamethree-textes" id="gamethreetes" src="./game6/img-textes.png">
+		</div>
+		<script type="text/javascript">
+			gamethreet.onclick=function(){
+				gamethreet.style.visibility='hidden';
+				gamethreetes.style.visibility='visible';
+				jun.style.visibility='visible';
+			}
+			gamethreetes.onclick=function(){
+				gamethreet.style.visibility='visible';
+				gamethreetes.style.visibility='hidden';
+				jun.style.visibility='hidden';
+			}
+
+		</script>
+	</div>
+</body>
+</html>

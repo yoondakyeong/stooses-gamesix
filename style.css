@@ -1,0 +1,434 @@
+/*게임 666666666666666 스투스뜨*/
+
+*:focus { outline:none; }
+*{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	text-decoration: none;
+}
+#indexone{
+	background: #1d2760;
+}
+#indextwo{
+	background: #1d2760;
+}
+#index-game-one{
+	background: #c61c4d;
+}
+#index-game-two{
+	background: #e8bd0a;
+}
+#index-game-three{
+	background: #24aa90;
+}
+
+#qicon{
+	cursor: pointer;
+}
+.full-backgorund{
+	position: absolute;
+	height: 100%;
+	z-index: 10;
+	animation: back 1s forwards;
+	animation-delay: 1.8s;
+	visibility: visible;
+}
+@keyframes back {
+  from{opacity: 1;}
+  to{opacity: 0.0; visibility: hidden;}
+}
+
+.head-left-icons{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+}
+.head-right-icons{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+.pageboxes{
+	position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    height: 650px;
+    width: 1155px;
+    border: 10px solid white;
+    border-radius: 10px;
+    box-sizing: content-box;
+}
+
+/*아이콘(상단) 이미지*/
+.icon-tops{
+	height: 80px;
+}
+.icon-tops:hover{
+	opacity: 0.8;
+}
+
+
+/* 메이이이이인 페이지 --- 메이이이인 */
+#indexx{
+	position: absolute;
+	background-image: url(./main/img1/background-index.png);
+    background-size: cover;
+}
+
+.section-index-start{
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top: 53%;
+	left: 50%;
+	height: 30px;
+	display: none;
+}
+.section-index-star{
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top: 40%;
+	left: 50%;
+	height: 60px;
+}
+#star-icon{
+	background: pink;
+	height: 100px;
+	width: 100px;
+}
+.section-index-star-shine{
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top: 40%;
+	left: 50%;
+	height: 240px;
+	z-index: -1;
+	animation: ro 1s infinite linear alternate;
+}
+
+@keyframes ro {
+  from{opacity: 1;}to{opacity: 0.4;}}
+
+
+
+ /*캐릭터,,, 그림자자자자*/
+.section-index-ju-shadow{
+	width: 10%;
+	position: absolute;
+	bottom: 35px;
+	left: 5%;
+}
+.section-index-pa-shadow{
+	width: 9%;
+	position: absolute;
+	bottom: 25px;
+	left: 15%;
+}
+.section-index-th-one-shadow{
+	width: 6%;
+	position: absolute;
+	right: 19%;
+	bottom: 40px;
+}
+.section-index-th-two-shadow{
+	width: 6%;
+	position: absolute;
+	right: 12%;
+	bottom: 45px;
+}
+.section-index-th-three-shadow{
+	width: 6%;
+	position: absolute;
+	right: 5%;
+	bottom: 40px;
+}
+#star-icon:hover + .section-index-start{
+	display: block;
+}
+
+.section-index-game:hover{
+	opacity: 0.8;
+}
+     /*게임클리리이잉*/
+#games{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 36%;
+  left: 50%;
+}
+#games-two{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 58%;
+  left: 50%;
+}
+
+.index-leftpadding{
+  padding-left: 5px;
+}
+
+
+.section-index-game{
+	width: 125px;
+}
+
+		/*인덱스투투투투투투우-텍스트,ㅇㅇ,응*/
+.section-index-ju-text{
+	position: absolute;
+	width: 175px;
+	bottom: 35%;
+	left: 4%;
+	display: none;
+}
+.section-index-pa-text{
+	position: absolute;
+	width: 175px;
+	bottom: 18%;
+	left: 14%;
+	display: none;
+}
+.section-index-th-text{
+	position: absolute;
+	width: 175px;
+	bottom: 19%;
+	right: 7%;
+	opacity: 1;
+	display: none;
+}
+
+.q-wrap{
+	width: 52%;
+    height: 38%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    z-index: 1;
+}
+.indextwo-q{
+	width: 100%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top: 50%;
+	left: 50%;
+}
+.indextwo-q-x{
+	height: 55px;
+	position: absolute;
+	top: 7%;
+	right: 4.5%;
+	cursor: pointer;
+}
+.indextwo-q-x:hover{
+	opacity: 0.8;
+}
+#qwrap{
+	visibility: hidden;
+	font-family: 'CookieRunOTF-Bold';
+	position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 45%;
+}
+
+
+
+
+
+/* 게임6666 페이지 --- 그림그림 */
+#pagethree{
+	position: absolute;
+	background-image: url(./game6/background-three.png);
+    background-size: cover;
+}
+#gamethree-wrap{
+	position: absolute;
+    transform: translate(-50%, -50%);
+    top: 51%;
+    left: 50%;
+    width: 42%;
+    z-index: -1;
+}
+.gamethree-box{
+	position: relative;
+    width: 100%;
+}
+.gamethree-box-in{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+}
+.gamethree-ju{
+	position: absolute;
+    bottom: 10%;
+    left: 5%;
+    width: 10%;
+}
+.gamethree-ju-n{
+	position: absolute;
+    bottom: 10%;
+    left: 5%;
+    width: 10%;
+    visibility: hidden;
+}
+.gamethree-text{
+	position: absolute;
+    bottom: 40%;
+    left: 7.5%;
+    width: 60px;
+    visibility: visible;
+    cursor: pointer;
+}
+.gamethree-textes{
+	position: absolute;
+    bottom: 40%;
+    left: 3.5%;
+    width: 150px;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+/*게임삼6666666 게임 카드으으으플러스 코드*/
+
+
+#game6wrap{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  width: 400px;
+} 
+
+.width500px{
+  margin-top: 40px;
+          display: contents;
+        }
+      
+        #menuTable{ 
+      font-size: 1.3em; 
+        }
+
+        .alignRight{ 
+          color: white;
+          position: absolute;
+          padding: 13px;
+          font-size: 1em;
+          font-weight: bold;
+          visibility: hidden;
+          font-family: 'CookieRunOTF-Bold';
+            
+        }
+        #startBtn{
+        	box-shadow: 5px 8px 15px 2px grey;
+        border: 5px solid white;
+    	color: #24aa90;
+    	font-size: 3.5em;
+   		margin-bottom: 10px;
+    	border-radius: 10px;
+    	position: absolute;
+   	 	top: 50%;
+    	left: 50%;
+    	transform: translate(-50%, -50%);
+    	padding: 2px 15px 2px 15px;
+    	cursor: pointer;
+    	font-family: 'CookieRunOTF-Bold';
+        }
+        #cardTable{
+          border-collapse: collapse;
+            margin-top: 2px;
+            margin-bottom: 40px;
+        }
+        #cardTable td{
+          border: 5px solid white; 
+          width: 95px; 
+            height: 95px; 
+          text-align: center;
+        }
+        #cardTable td img{
+          display: block;
+          max-width: 100%;
+          max-height: 100%;
+            top:50%;
+            
+        }
+        #cardTable td span{
+          font-size: 25pt; 
+          font-weight: bold; 
+          color: white; 
+          display: none;
+          font-family: 'CookieRunOTF-Bold';
+        }
+        #countDown{
+          /*background-color: white;*/
+          /* border: 5px solid white;  */
+          color: white; 
+          font-size: 1.5em; 
+          font-weight: bold;
+          padding: 5px;
+            border-radius: 10px;
+            visibility: hidden;
+            text-align: right;
+            font-family: 'CookieRunOTF-Bold';
+        }
+        #info{
+            width: 100%; 
+          height: 100%; 
+          
+          color: white; 
+          padding-top: 100px;
+            padding-bottom: 100px;
+            }
+
+
+              /*다시하기*/
+          #ag{
+          	position: absolute;
+   			top: 80%;
+    		left: 50%;
+    		transform: translate(-50%, 0%);
+            border: none; 
+          	color: white; 
+         z-index: 1;
+         	width: 118px;
+          	padding: 7px; 
+          	font-size: 22px;  
+            border-radius: 10px;
+            border:5px solid white;
+            display: none;
+            font-family: 'CookieRunOTF-Bold';
+          }
+         .nextstage-game6{
+            display: block;
+           position: absolute;
+          transform: translate(-50%, -50%);
+          top: 80%;
+          left: 50%;
+          z-index: 1;
+          width: 143px;
+          padding: 7px;
+          font-size: 22px;
+          border-radius: 10px;
+          border: 5px solid white;
+          margin-top: 15px;
+          font-family: 'CookieRunOTF-Bold';
+          }
+
+.iconlastss{
+  width: 180px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 58%;
+  left: 85%;
+  display: none;
+}
+
+/*6666666666 */
+
+.backlast{
+  width: 100%;
+  display: none;
+}
